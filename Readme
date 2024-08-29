@@ -1,0 +1,61 @@
+# Fibonacci Sequence Application 
+This suite consists of two console applications:
+1. **FibonacciSequenceGenerator**: Generates the Fibonacci sequence up to 233 and stores each number in Azure Queue Storage.
+2. **MessageProcessor**: Retrieves the Fibonacci numbers from Azure Queue Storage and saves them to Azure File Storage as a text file.
+
+## Prerequisites
+
+Before running the applications, ensure you have the following:
+
+- **.NET SDK**: Install the latest version of the .NET SDK from [Microsoft's website](https://dotnet.microsoft.com/download).
+- **Azure Storage Account**: Set up an Azure Storage account with both Queue Storage and File Storage.
+- **Azure Storage SDK for .NET**: Required to interact with Azure Storage services.
+
+## Application 1: Fibonacci Sequence Generator
+
+This application generates the Fibonacci sequence up to 233 and stores each number in an Azure Queue Storage.
+
+### Instructions
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd FibonacciSequenceGenerator
+ Configure Azure Connection:
+Open Program.cs and update the connectionString variable with your Azure Queue Storage connection string:
+
+csharp
+Copy code
+string connectionString = "Your_Azure_Storage_Connection_String";  
+Run the Application:
+Open a terminal or command prompt, navigate to the project directory, and execute:
+
+bash
+Copy code
+dotnet run  
+This will generate the Fibonacci sequence up to 233 and store each number as a separate message in Azure Queue Storage.
+
+Application 2: Message Processor
+Clone the Repository:
+
+bash
+Copy code
+git clone <repository-url>  
+cd MessageProcessor  
+Configure Azure Connections:
+Open Program.cs and update the following variables with your Azure connection strings and file share information:
+
+csharp
+Copy code
+string queueConnectionString = "Your_Azure_Queue_Storage_Connection_String";  
+string fileConnectionString = "Your_Azure_File_Storage_Connection_String";  
+string shareName = "yourfileshare";  // Replace with your actual file share name  
+string fileName = "YourName-YourSurname.txt";  // Replace with your name  
+Run the Application:
+Open a terminal or command prompt, navigate to the project directory, and execute:
+
+bash
+Copy code
+dotnet run  
+This will process the messages from the Azure Queue Storage and save the Fibonacci sequence to a text file in Azure File Storage.
